@@ -1,0 +1,16 @@
+[Unit]
+Description=Servico Buzzer Escala Musical
+After=multi-user.target
+
+[Service]
+Type=simple
+User=root
+Environment="HOME=/tmp"
+ExecStartPre=/bin/sleep 5
+ExecStart=/usr/bin/python3 /home/sel/edson_matheus/prat5/ck1/tocar_escala.py
+ExecStop=/usr/bin/python3 /home/sel/edson_matheus/prat5/ck1/parar_buzzer.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
